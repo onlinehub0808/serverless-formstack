@@ -1,0 +1,24 @@
+{
+    "trigger": true,
+    "modules": [
+        "verification-link"
+    ],
+    "parentResource": "vinylrecordsf44d6f3d",
+    "functionName": "vinylrecordsf44d6f3dCustomMessage",
+    "resourceName": "vinylrecordsf44d6f3dCustomMessage",
+    "parentStack": "auth",
+    "triggerEnvs": [
+        {
+            "key": "RESOURCENAME",
+            "value": "resourceName"
+        }
+    ],
+    "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/CustomMessage",
+    "triggerTemplate": "CustomMessage.json.ejs",
+    "roleName": "vinylrecordsf44d6f3dCustomMessage",
+    "skipEdit": true,
+    "REDIRECTURL": "http://locahost:3000",
+    "EMAILSUBJECT": "Account verify",
+    "EMAILMESSAGE": "Please, kindly click on the link to activate your account #########",
+    "RESOURCENAME": "resourceName"
+}

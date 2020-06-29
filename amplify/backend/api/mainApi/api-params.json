@@ -1,0 +1,55 @@
+{
+    "paths": [
+        {
+            "name": "/getRecords",
+            "lambdaFunction": "mainLambda",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/getRecord/recordId",
+            "lambdaFunction": "mainLambda",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/createRecord",
+            "lambdaFunction": "mainLambda",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/deleteRecord/recordId",
+            "lambdaFunction": "mainLambda",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "mainApi",
+    "apiName": "mainApi",
+    "functionArns": [
+        {
+            "lambdaFunction": "mainLambda"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-vinylrecords-dev-01538-authRole",
+        "unAuthRoleName": "amplify-vinylrecords-dev-01538-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "mainLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

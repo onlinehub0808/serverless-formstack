@@ -1,0 +1,15 @@
+{
+    "trigger": true,
+    "modules": [
+        "captcha-create-challenge"
+    ],
+    "parentResource": "vinylrecordsbfb9f728",
+    "functionName": "vinylrecordsbfb9f728CreateAuthChallenge",
+    "resourceName": "vinylrecordsbfb9f728CreateAuthChallenge",
+    "parentStack": "auth",
+    "triggerEnvs": [],
+    "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/CreateAuthChallenge",
+    "triggerTemplate": "CreateAuthChallenge.json.ejs",
+    "roleName": "vinylrecordsbfb9f728CreateAuthChallenge",
+    "skipEdit": true
+}

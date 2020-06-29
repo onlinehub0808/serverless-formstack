@@ -2,21 +2,37 @@
 	"AWSTemplateFormatVersion": "2010-09-09",
 	"Description": "Lambda resource stack creation using Amplify CLI",
 	"Parameters": {
-		"CloudWatchRule": {
+		"modules": {
 			"Type": "String",
-			"Default": "NONE",
-			"Description": " Schedule Expression"
+			"Default": "",
+			"Description": "Comma-delimmited list of modules to be executed by a lambda trigger. Sent to resource as an env variable."
+		},
+		"resourceName": {
+			"Type": "String",
+			"Default": ""
+		},
+		"trigger": {
+			"Type": "String",
+			"Default": "true"
+		},
+		"functionName": {
+			"Type": "String",
+			"Default": ""
+		},
+		"roleName": {
+			"Type": "String",
+			"Default": ""
+		},
+		"parentResource": {
+			"Type": "String",
+			"Default": ""
+		},
+		"parentStack": {
+			"Type": "String",
+			"Default": ""
 		},
 		"env": {
 			"Type": "String"
-		},
-		"storagevinylRecordsName": {
-			"Type": "String",
-			"Default": "storagevinylRecordsName"
-		},
-		"storagevinylRecordsArn": {
-			"Type": "String",
-			"Default": "storagevinylRecordsArn"
 		}
 	},
 	"Conditions": {
@@ -41,12 +57,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"vinylFunction",
+						"vinylrecordsbfb9f728DefineAuthChallenge",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"vinylFunction",
+									"vinylrecordsbfb9f728DefineAuthChallenge",
 									"-",
 									{
 										"Ref": "env"
@@ -61,6 +77,9 @@
 						"ENV": {
 							"Ref": "env"
 						},
+						"MODULES": {
+							"Ref": "modules"
+						},
 						"REGION": {
 							"Ref": "AWS::Region"
 						}
@@ -72,11 +91,11 @@
 						"Arn"
 					]
 				},
-				"Runtime": "nodejs12.x",
+				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-vinylrecords-dev-170401-deployment",
-					"S3Key": "amplify-builds/vinylFunction-6d312f48786c71636a44-build.zip"
+					"S3Bucket": "amplify-vinylrecords-dev-01538-deployment",
+					"S3Key": "amplify-builds/vinylrecordsbfb9f728DefineAuthChallenge-424747513244715a3435-build.zip"
 				}
 			}
 		},
@@ -86,12 +105,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"vinylrecordsLambdaRoledd41a0fb",
+						"vinylrecordsbfb9f728DefineAuthChallenge",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"vinylrecordsLambdaRoledd41a0fb",
+									"vinylrecordsbfb9f728DefineAuthChallenge",
 									"-",
 									{
 										"Ref": "env"
@@ -157,34 +176,6 @@
 									}
 								]
 							}
-						},
-						{
-							"Effect": "Allow",
-							"Action": [
-								"dynamodb:DescribeTable",
-								"dynamodb:GetItem",
-								"dynamodb:Query",
-								"dynamodb:Scan",
-								"dynamodb:PutItem",
-								"dynamodb:UpdateItem",
-								"dynamodb:DeleteItem"
-							],
-							"Resource": [
-								{
-									"Ref": "storagevinylRecordsArn"
-								},
-								{
-									"Fn::Join": [
-										"/",
-										[
-											{
-												"Ref": "storagevinylRecordsArn"
-											},
-											"index/*"
-										]
-									]
-								}
-							]
 						}
 					]
 				}
@@ -205,14 +196,14 @@
 				]
 			}
 		},
-		"Region": {
-			"Value": {
-				"Ref": "AWS::Region"
-			}
-		},
 		"LambdaExecutionRole": {
 			"Value": {
 				"Ref": "LambdaExecutionRole"
+			}
+		},
+		"Region": {
+			"Value": {
+				"Ref": "AWS::Region"
 			}
 		}
 	}

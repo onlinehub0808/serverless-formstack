@@ -1,49 +1,55 @@
 {
-	"auth": {
-		"vinylrecordse615e12e": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": []
-		}
-	},
-	"storage": {
-		"vinylRecords": {
-			"service": "DynamoDB",
-			"providerPlugin": "awscloudformation"
-		}
-	},
 	"function": {
-		"vinylFunction": {
+		"mainLambda": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda",
-			"dependsOn": [
-				{
-					"category": "storage",
-					"resourceName": "vinylRecords",
-					"attributes": [
-						"Name",
-						"Arn"
-					],
-					"attributeEnvMap": {
-						"Name": "TABLE_NAME",
-						"Arn": "TABLE_ARN"
-					}
-				}
-			]
+			"dependsOn": []
+		},
+		"vinylrecordsbfb9f728DefineAuthChallenge": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda"
+		},
+		"vinylrecordsbfb9f728CreateAuthChallenge": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda"
+		},
+		"vinylrecordsf44d6f3dCustomMessage": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda"
 		}
 	},
 	"api": {
-		"vinylRecordsApi": {
+		"mainApi": {
 			"service": "API Gateway",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [
 				{
 					"category": "function",
-					"resourceName": "vinylFunction",
+					"resourceName": "mainLambda",
 					"attributes": [
 						"Name",
 						"Arn"
+					]
+				}
+			]
+		}
+	},
+	"auth": {
+		"vinylrecordsf44d6f3d": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "vinylrecordsf44d6f3dCustomMessage",
+					"triggerProvider": "Cognito",
+					"attributes": [
+						"Arn",
+						"Name"
 					]
 				}
 			]
