@@ -3,7 +3,7 @@ A simple Severless application to create vinyl records
 
 Development
 -------------
-This application was developed with [NodeJs](http://nodejs.org) and [Amplify Serverless Framework](https://docs.amplify.aws/lib/q/platform/js), [DynamoDB](https://aws.amazon.com/dynamodb/) database was used alongside reactJs with redux framework as Frontend frameworks.
+This application was developed with [NodeJs](http://nodejs.org) and [Amplify Serverless Framework](https://docs.amplify.aws/lib/q/platform/js), [DynamoDB](https://aws.amazon.com/dynamodb/) database was used alongside reactJs and redux framework as Frontend frameworks.
 
 
 Installation
