@@ -1,0 +1,5 @@
+{
+    "tableName": "vinylRecords",
+    "partitionKeyName": "recordId",
+    "partitionKeyType": "S"
+}

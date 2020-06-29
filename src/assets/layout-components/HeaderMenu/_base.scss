@@ -1,0 +1,180 @@
+//  Core
+
+.header-nav-menu {
+
+  & > div > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    & > li {
+      position: relative;
+
+      & > a {
+        font-weight: bold;
+        @include border-radius($border-radius-sm);
+        margin: 0 0 0 2px;
+        padding: ($spacer / 3) ($spacer) ($spacer / 3);
+        color: $gray-600;
+        height: 42px;
+        line-height: 42px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+
+        .header-icon-wrapper {
+          font-size: $font-size-xl * 1.1;
+          width: 32px;
+          height: 32px;
+          line-height: 32px;
+          opacity: .7;
+          margin-right: ($spacer / 3);
+          transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+
+          @include media-breakpoint-down(lg) {
+            display: none;
+            opacity: 0;
+          }
+
+          & > i {
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            display: block;
+            text-align: center;
+          }
+        }
+
+        .nav-icon-indicator {
+          font-size: $font-size-lg * 1.1;
+          opacity: .6;
+          margin-left: 2px;
+        }
+
+        &:hover,
+        &.active {
+          color: $gray-400;
+          background: rgba($white, .2);
+
+
+          .header-icon-wrapper {
+            opacity: 1;
+            color: $gray-300;
+          }
+        }
+      }
+
+      ul {
+        visibility: hidden;
+        opacity: 0;
+        transition: $transition-base;
+        position: absolute;
+        box-shadow: $box-shadow-lg;
+        background: $dropdown-bg;
+        list-style: none;
+        margin: 0 0 0 -18rem;
+        padding: 0;
+        @include border-radius($border-radius-sm);
+        min-width: 36rem;
+        left: 50%;
+        top: 100%;
+        right: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: ($spacer / 2);
+        margin-top: 5px;
+
+        li {
+          display: block;
+          width: 33.3%;
+          padding: 1px;
+
+          a {
+            display: flex;
+            @include border-radius($border-radius-sm);
+            padding: ($spacer / 2) ($spacer);
+            transition: $transition-base;
+            color: $gray-800;
+            align-items: center;
+
+            &.active,
+            &:hover {
+              background: $first-neutral;
+              color: $blue;
+
+              .nav-icon-indicator {
+                opacity: .7;
+              }
+            }
+
+            .nav-icon-indicator {
+              opacity: .35;
+              transition: $transition-base;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        ul {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      &:nth-last-of-type(-n+2) {
+        ul {
+          left: auto;
+          right: 0;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.navbar-toggler-light {
+  .hamburger-inner,
+  .hamburger-inner:after,
+  .hamburger-inner:before {
+    background: $white !important;
+  }
+}
+
+// Responsive menu
+
+.list-responsive-accordion {
+  padding: 0;
+  height: 350px;
+
+  .card {
+    border-radius: 0;
+  }
+
+  .card-header {
+    box-shadow: none;
+    border-radius: 0 !important;
+
+    .card-hover-indicator {
+      transform: rotate(90deg);
+      transition: $transition-base;
+    }
+  }
+
+  .panel-open {
+    .card-header {
+      .card-hover-indicator {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .card-body {
+    padding: 0;
+    border-top: $gray-400 solid 1px;
+  }
+}

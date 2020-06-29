@@ -1,0 +1,44 @@
+{
+  "name": "hexal-serverless-starter",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "aws-amplify": "^3.0.18",
+    "aws-amplify-react": "^4.1.17",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.5.0",
+    "clsx": "^1.1.1",
+    "history": "^5.0.0",
+    "node-sass": "^4.14.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-redux": "^7.2.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "latest",
+    "react-scripts": "^2.1.8",
+    "reactstrap": "^8.4.1",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0",
+    "uuid": "^8.2.0",
+    "validate.js": "^0.13.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
